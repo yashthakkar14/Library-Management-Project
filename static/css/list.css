@@ -1,0 +1,14 @@
+.container{
+    margin-top:1em;
+}
+
+h2{
+    display: inline-block;
+    margin-bottom : 0;
+}
+
+.btn-success, .btn-primary{
+    margin: 0;
+    margin-bottom:1em;
+    margin-left:1em;
+}

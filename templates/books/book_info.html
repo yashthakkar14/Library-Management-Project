@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Info</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="2" style="text-align: center;">Data for the book: {{book_info.title}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Book ID</th>
+                    <td id="book_id">{{book_info.bookID}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Title</th>
+                    <td id="title_input">{{book_info.title}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Language Code</th>
+                    <td>{{book_info.language_code}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">ISBN</th>
+                    <td>{{book_info.isbn}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">ISBN13</th>
+                    <td>{{book_info.isbn13}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Available Quantity</th>
+                    <td>{{book_info.available_quantity}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Total Quantity</th>
+                    <td>{{book_info.total_quantity}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Average Rating</th>
+                    <td>{{book_info.average_rating}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ratings Count</th>
+                    <td>{{book_info.ratings_count}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Reviews Count</th>
+                    <td>{{book_info.text_reviews_count}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Publisher</th>
+                    <td>{{book_info.publisher}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Edit Book</th>
+                    <td><a href="/books/{{book_info.bookID}}/edit"><button id="edit_book" class="btn btn-outline-info">Edit</button></a></td>
+                </tr>
+                <tr>
+                    <th scope="row">Delete Book</th>
+                    <td><button id="delete_book" class="btn btn-outline-danger">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/books">&larr; Back to All Books</a>
+    </div>
+    <script src="{{ url_for('static', filename='js/book_info.js') }}"></script>
+</body>
+</html>

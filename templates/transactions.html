@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% set active_page = 'page3' %}
+
+{% block head %}
+<title>Transaction Details</title>
+<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/list.css') }}"> -->
+{% endblock head %}
+
+{% block body %}
+<h2>Transaction Details</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Book ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Member ID</th>
+            <th scope="col">Member Name</th>
+            <th scope="col">Book Assigned</th>
+            <th scope="col">Book Price</th>
+            <th scope="col">Book Returned</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if transactions_data %}
+            {% for data in transactions_data %}
+            <tr>
+                <td class="book_id">{{data.bookID}}</td>
+                <td><a href="/books/{{data.bookID}}">{{data.title}}</a></td>
+                <td class="member_id">{{data.memberID}}</td>
+                <td><a href="/members/{{data.memberID}}">{{data.name}}</a></td>
+                <td>{{data.bookAssigned}}</td>
+                <td class="book_price">{{data.bookPrice}}</td>
+                {% if data.bookReturned==0 %}
+                    <td><button class="mark_return btn btn-success">Mark Return</button></td>
+                {% else %}
+                    <td>Book Returned</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        {% endif %}
+    </tbody>
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/transactions.js') }}"></script>
+{% endblock body %}     

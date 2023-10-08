@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Info</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="2" style="text-align: center;">Data for the member: {{member_info.name}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Member ID</th>
+                    <td id="member_id">{{member_info.memberID}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Name</th>
+                    <td id="name">{{member_info.name}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Email</th>
+                    <td>{{member_info.email}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Phone Number</th>
+                    <td>{{member_info.phone_number}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Outstanding Balance</th>
+                    <td id="outstanding_info" data-value={{member_info.outstanding_balance}}>{{member_info.outstanding_balance}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">View Transactions</th>
+                    <td><a href="/transactions?memberId={{member_info.memberID}}"><button class="btn btn-outline-success">View Transactions</button></a></td>
+                </tr>
+                <tr>
+                    <th scope="row">Issue Book</th>
+                    <td><button id="issue_book" class="btn btn-outline-primary">Issue Book</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">Edit Member</th>
+                    <td><a href="/members/{{member_info.memberID}}/edit"><button id="edit_member" class="btn btn-outline-info">Edit</button></a></td>
+                </tr>
+                <tr>
+                    <th scope="row">Delete Member</th>
+                    <td><button id="delete_member" class="btn btn-outline-danger">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/members">&larr; Back to All Members</a>
+    </div>
+    <script src="{{ url_for('static', filename='js/member_info.js') }}"></script>
+</body>
+</html>
