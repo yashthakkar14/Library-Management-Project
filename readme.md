@@ -14,15 +14,42 @@
 - All the above mentioned points are executed in this application.
 
 ### Output
-![Adding Book](./assets/book_add.jpg)
-![Edit Book](./assets/book_edit.jpg)
-![Book Info](./assets/book_info.jpg)
-![Book Issue](./assets/book_issue.jpg)
-![Book Page](./assets/book_page.jpg)
+
+#### Home Page
 ![Home Page](./assets/home_page.jpg)
+
+#### Books Page
+![Book Page](./assets/book_page.jpg)
+
+#### Books Search
+![Book Page](./assets/book_search.jpg)
+
+#### Add Book
+![Adding Book](./assets/book_add.jpg)
+
+#### Edit Book
+![Edit Book](./assets/book_edit.jpg)
+
+#### View Book Info
+![Book Info](./assets/book_info.jpg)
+
+#### Issue a Book
+![Book Issue](./assets/book_issue.jpg)
+
+#### Import Books
 ![Import Books](./assets/import_books.jpg)
-![Add Member](./assets/member_add.jpg)
-![Edit Member](./assets/member_edit.jpg)
-![Info Member](./assets/member_info.jpg)
+
+#### View All Members
 ![Members](./assets/members.jpg)
+
+#### Add Member
+![Add Member](./assets/member_add.jpg)
+
+##### Edit Member
+![Edit Member](./assets/member_edit.jpg)
+
+#### View Member Info
+![Info Member](./assets/member_info.jpg)
+
+#### View Transactions
 ![Transactions](./assets/transactions.jpg)

@@ -34,17 +34,21 @@ def get_books():
         book_issue = request.args.get('issue')
         member_id = request.args.get('memberID')
         member_name = request.args.get('memberName')
+        
 
         book_issue_dict = None
+        search_dict = {}
         if(book_issue == 'true'):
             book_issue_dict = {'member_id':member_id, 'book_issue':True, 'member_name':member_name}
 
         search_query = "SELECT * FROM books WHERE 1"
         query_params = []
         if search_title:
+            search_dict['search_title'] = search_title
             search_query += " AND title=%s"
             query_params.append(search_title)
         if search_author:
+            search_dict['search_author'] = search_author
             search_query+=" AND authors=%s"
             query_params.append(search_author)
         print(search_query)
@@ -52,7 +56,7 @@ def get_books():
         books_details = cursor.fetchall()
         cursor.close()
         pprint(books_details)
-        return render_template('/books/books.html', books_details = books_details, book_issue=book_issue_dict)
+        return render_template('/books/books.html', books_details = books_details, book_issue=book_issue_dict, search_dict=search_dict)
     elif request.method == "POST":
         books_details = request.form
         print(books_details)
