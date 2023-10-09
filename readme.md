@@ -2,11 +2,11 @@
 
 
 ### Introduction
-- **NEW** : Check the assets folder for the mysql dump file
+- **NEW** : Website Hosted : http://yashthakkar14.pythonanywhere.com/
+- Check the assets folder for the mysql dump file
     1. Login to your SQL using the command: `mysql -u username -p`
-    2. Use the Database :  `USE library_management;`
-    3. Import the database file : `source 'library_management.sql';`
-    4. Exit : exit;
+    2. Import the database file : `source 'library_management.sql';`
+    3. Exit : exit;
 - The given project is a library management project.
 - It has three main parts : Members, Books and Transactions.
 - The following are the usage points.
