@@ -15,12 +15,12 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-CREATE DATABASE IF NOT EXISTS library_management;
-USE library_management;
-
 --
 -- Table structure for table `books`
 --
+
+CREATE DATABASE IF NOT EXISTS library_management;
+USE library_management;
 
 DROP TABLE IF EXISTS `books`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -78,7 +78,7 @@ CREATE TABLE `members` (
 
 LOCK TABLES `members` WRITE;
 /*!40000 ALTER TABLE `members` DISABLE KEYS */;
-INSERT INTO `members` VALUES (1,'John Doe','john@example.com',1234567890,0),(2,'Alice Smith','alice@example.com',9876543210,0),(3,'Bob Johnson','bobj@example.com',5551234567,0),(4,'Eva Brown','eva@example.com',7778889999,500),(5,'Charlie Lee','charlie@example.com',1112223333,0),(230,'Yash','yasht1407@gmail.com',9076225742,0),(231,'Sagar','sagar@gmail.com',1234567890,0),(232,'Vinit','vinit@gmail.com',1234567890,0),(233,'Tom','tom@gmail.com',1234567890,0),(234,'Abhay','abha2y@gmail.com',987654321,0);
+INSERT INTO `members` VALUES (1,'John Doe','john@example.com',1234567890,0),(2,'Alice Smith','alice@example.com',9876543210,0),(3,'Bob Johnson','bobj@example.com',5551234567,0),(4,'Eva Brown','eva@example.com',7778889999,500),(5,'Charlie Lee','charlie@example.com',1112223333,0),(230,'Yash','yasht1407@gmail.com',9076225742,0),(231,'Sagar','sagar@gmail.com',1234567890,0),(232,'Vinit','vinit@gmail.com',1234567890,0),(233,'Tom','tom@gmail.com',1234567890,0);
 /*!40000 ALTER TABLE `members` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,9 +98,7 @@ CREATE TABLE `transactions` (
   `transactionID` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`transactionID`),
   KEY `FK_bookID` (`bookID`),
-  KEY `FK_memberID` (`memberID`),
-  CONSTRAINT `FK_bookID` FOREIGN KEY (`bookID`) REFERENCES `books` (`bookID`),
-  CONSTRAINT `FK_memberID` FOREIGN KEY (`memberID`) REFERENCES `members` (`memberID`)
+  KEY `FK_memberID` (`memberID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -123,4 +121,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-09 16:49:34
+-- Dump completed on 2023-10-09 20:08:32
