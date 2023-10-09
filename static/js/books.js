@@ -46,5 +46,9 @@ assignBookButtons.forEach(function(assignBook){
         if(status == 'success'){
             window.location.href = `/transactions?memberId=${memberID}`
         }
+        else if(status == 'fail'){
+            const message = data.message
+            alert(message);
+        }
     })
 })

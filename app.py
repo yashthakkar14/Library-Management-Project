@@ -306,6 +306,11 @@ def get_transactions():
        member_id = data.get('memberID')
        book_fees = data.get('bookFees')
        transaction_type = data.get('transactionType')
+       cursor.execute("SELECT * FROM transactions WHERE bookID=%s AND memberID=%s AND bookReturned=0",(book_id, member_id,))
+       check_book_assigned = cursor.fetchone()
+       if(check_book_assigned!=None):
+           return {'status':'fail', 'memberID':member_id, 'bookID':book_id, 'message':'Cannot assign same book again'}
+       print(check_book_assigned)
        cursor.execute("INSERT INTO transactions(bookID, memberID, bookPrice, bookAssigned, bookReturned) VALUES (%s, %s, %s, %s, %s)", (book_id, member_id, book_fees, True, False))
        cursor.execute("UPDATE books SET available_quantity=available_quantity-1 WHERE bookID=%s", (book_id,))
        cursor.execute(f"UPDATE members SET outstanding_balance=outstanding_balance+{book_fees} WHERE memberID=%s",(member_id,))
@@ -329,4 +334,4 @@ def get_transactions():
     # return render_template('transactions.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
