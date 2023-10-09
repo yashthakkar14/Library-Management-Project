@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, session, url_for, jsonify
-from flask_cors import CORS
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 from datetime import datetime
@@ -15,7 +14,6 @@ app.config['MYSQL_USER'] = 'yash'
 app.config['MYSQL_PASSWORD'] = 'Yash1234'
 app.config['MYSQL_DB'] = 'library_management'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
-# cors = CORS(app, resources={r"/api/*": {"origins": "http://localhost:5000"}})
 
 mysql = MySQL(app)
 
