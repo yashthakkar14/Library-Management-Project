@@ -310,7 +310,6 @@ def get_transactions():
        check_book_assigned = cursor.fetchone()
        if(check_book_assigned!=None):
            return {'status':'fail', 'memberID':member_id, 'bookID':book_id, 'message':'Cannot assign same book again'}
-       print(check_book_assigned)
        cursor.execute("INSERT INTO transactions(bookID, memberID, bookPrice, bookAssigned, bookReturned) VALUES (%s, %s, %s, %s, %s)", (book_id, member_id, book_fees, True, False))
        cursor.execute("UPDATE books SET available_quantity=available_quantity-1 WHERE bookID=%s", (book_id,))
        cursor.execute(f"UPDATE members SET outstanding_balance=outstanding_balance+{book_fees} WHERE memberID=%s",(member_id,))
